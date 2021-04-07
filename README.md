@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/omotto/fmlog/badge.svg)](https://coveralls.io/github/omotto/fmlog)
 [![Go Report Card](https://goreportcard.com/badge/github.com/omotto/fmlog)](https://goreportcard.com/report/github.com/omotto/fmlog)
 
-# basicCron
+# fmlog
 
 Package fmlog implements basic JSON output format logger
 
