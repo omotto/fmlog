@@ -9,8 +9,8 @@ import (
 )
 
 type MyError struct {
-	Code 	int			`json:"code"`
-	Msg		string		`json:"msg"`
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
 }
 
 func (e *MyError) Error() string {
@@ -21,7 +21,7 @@ func (e *MyError) Error() string {
 func NewError(code int, msg string) *MyError {
 	return &MyError{
 		Code: code,
-		Msg: msg,
+		Msg:  msg,
 	}
 }
 
@@ -31,4 +31,3 @@ func TestFMLog(t *testing.T) {
 	log.Log(Error, fmt.Errorf("error message"))
 	log.Log(Info, NewError(123, "info message"))
 }
-

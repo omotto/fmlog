@@ -11,19 +11,19 @@ import (
 // LogType defines log output type as Info, Warning or Error
 type LogType string
 
-const(
+const (
 	// Info message level
-	Info 		LogType = "INFO"
+	Info LogType = "INFO"
 	// Warning error level
-	Warning 			= "WARNING"
+	Warning = "WARNING"
 	// Error output log level
-	Error 				= "ERROR"
+	Error = "ERROR"
 )
 
 // Logger class
 type Logger struct {
-	mu     	sync.Mutex
-	out 	io.Writer
+	mu  sync.Mutex
+	out io.Writer
 }
 
 // NewLogger constructor
@@ -34,12 +34,12 @@ func NewLogger(out io.Writer) *Logger {
 // Log method of Logger class
 func (l *Logger) Log(logType LogType, err error) {
 	var logMessage struct {
-		Message  	interface{} `json:"message"`
-		Type     	LogType 	`json:"type"`
-		Function 	string  	`json:"function"`
-		FileName 	string  	`json:"fileName"`
-		Line     	int     	`json:"line"`
-		TimeStamp	string  	`json:"timeStamp"`
+		Message   interface{} `json:"message"`
+		Type      LogType     `json:"type"`
+		Function  string      `json:"function"`
+		FileName  string      `json:"fileName"`
+		Line      int         `json:"line"`
+		TimeStamp string      `json:"timeStamp"`
 	}
 
 	l.mu.Lock()
@@ -55,14 +55,12 @@ func (l *Logger) Log(logType LogType, err error) {
 		logMessage.Message = err.Error()
 	}
 	logMessage.FileName = fn
-	logMessage.Type 	= logType
-	logMessage.Line		= line
+	logMessage.Type = logType
+	logMessage.Line = line
 	logMessage.Function = funcName
-	logMessage.TimeStamp= time.Now().UTC().String()
+	logMessage.TimeStamp = time.Now().UTC().String()
 
 	if msg, e := json.Marshal(&logMessage); e == nil {
 		_, _ = io.WriteString(l.out, string(msg))
 	}
 }
-
-
