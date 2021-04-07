@@ -8,23 +8,30 @@ import (
 	"time"
 )
 
+// LogType defines log output type as Info, Warning or Error
 type LogType string
 
 const(
+	// Info message level
 	Info 		LogType = "INFO"
+	// Warning error level
 	Warning 			= "WARNING"
+	// Error output log level
 	Error 				= "ERROR"
 )
 
+// Logger class
 type Logger struct {
 	mu     	sync.Mutex
 	out 	io.Writer
 }
 
+// NewLogger constructor
 func NewLogger(out io.Writer) *Logger {
 	return &Logger{out: out}
 }
 
+// Log method of Logger class
 func (l *Logger) Log(logType LogType, err error) {
 	var logMessage struct {
 		Message  	interface{} `json:"message"`

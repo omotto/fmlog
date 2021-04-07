@@ -8,18 +8,18 @@ import (
 	"testing"
 )
 
-type myError struct {
+type MyError struct {
 	Code 	int			`json:"code"`
 	Msg		string		`json:"msg"`
 }
 
-func (e *myError) Error() string {
+func (e *MyError) Error() string {
 	msg, _ := json.Marshal(e)
 	return string(msg)
 }
 
-func NewError(code int, msg string) *myError {
-	return &myError{
+func NewError(code int, msg string) *MyError {
+	return &MyError{
 		Code: code,
 		Msg: msg,
 	}

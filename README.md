@@ -1,6 +1,6 @@
 [![GoDoc](http://godoc.org/github.com/omotto/fmlog?status.png)](http://godoc.org/github.com/omotto/fmlog)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/omotto/fmlog)](https://pkg.go.dev/github.com/omotto/fmlog)
-[![Build Status](https://travis-ci.com/omotto/fmlog.svg?branch=main)](https://travis-ci.com/omotto/fmlog)
+[![Build Status](https://travis-ci.com/omotto/fmlog.svg?branch=master)](https://travis-ci.com/omotto/fmlog)
 [![Coverage Status](https://coveralls.io/repos/github/omotto/fmlog/badge.svg)](https://coveralls.io/github/omotto/fmlog)
 [![Go Report Card](https://goreportcard.com/badge/github.com/omotto/fmlog)](https://goreportcard.com/report/github.com/omotto/fmlog)
 
